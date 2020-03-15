@@ -1,5 +1,17 @@
 import React from "react";
+import { AppContext } from "../App/AppProvider";
 
-export default function Welcome() {
-  return <h1>Welcome to Bit</h1>;
+function welcomeMessage() {
+  return (
+    <AppContext.Consumer>
+      {({ firstVisit }) =>
+        firstVisit ? (
+          <div>
+            Welcome to Bit, please select your favorite coins to begin.{" "}
+          </div>
+        ) : null
+      }
+    </AppContext.Consumer>
+  );
 }
+export default welcomeMessage;
