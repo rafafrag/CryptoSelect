@@ -25,7 +25,7 @@ function toProperCase(lower) {
   return lower.charAt(0).toUpperCase() + lower.substr(1);
 }
 
-function ControlButton({ name, active }) {
+function ControlButton({ name }) {
   return (
     <AppContext.Consumer>
       {({ page, setPage }) => (
@@ -43,7 +43,7 @@ export default function() {
       <Logo> Bit </Logo>
       <div />
       <ControlButton active name="dashboard" />
-      <ControlButton name="setting" />
+      <ControlButton name="settings" />
     </Bar>
   );
 }
