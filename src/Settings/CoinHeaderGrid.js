@@ -11,23 +11,23 @@ export const CoinSymbol = styled.div`
   justify-self: right;
 `;
 
-const DeleteIcon = styled.div`
-  justify-self: right;
-  display: none;
-  ${DeletableTile}:hover & {
-    display: block;
-    color: red;
-  }
-`;
+// const DeleteIcon = styled.div`
+//   justify-self: right;
+//   display: none;
+//   ${DeletableTile}:hover & {
+//     display: block;
+//     color: red;
+//   }
+// `;
 
-export ddefault function ({ name, symbol }) {
-    return (
-      <CoinHeaderGridStyled>
-        <div> {name} </div>
-          <CoinSymbol> {symbol} </CoinSymbol>
-      </CoinHeaderGridStyled>
-  }
-
+export default function({ name, symbol }) {
+  return (
+    <CoinHeaderGridStyled>
+      <div> {name} </div>
+      <CoinSymbol> {symbol} </CoinSymbol>
+    </CoinHeaderGridStyled>
+  );
+}
 
 // function gridStyleTop({ name, symbol, topSection }) {
 //   return (
