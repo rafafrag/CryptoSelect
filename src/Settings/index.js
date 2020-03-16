@@ -3,10 +3,12 @@ import WelcomeMessage from "./WelcomeMessage";
 import ConfirmButton from "./ConfirmButton";
 import Page from "../Shared/Page";
 import CoinGrip from "./CoinGrid";
+import CoinGrid from "./CoinGrid";
 
 export default function() {
   return (
     <Page name="settings">
+      <CoinGrid topSection />
       <WelcomeMessage />
       <ConfirmButton />
       <CoinGrip />
