@@ -16,4 +16,5 @@ function loadingCoins(props) {
     </AppContext.Consumer>
   );
 }
+
 export default loadingCoins;

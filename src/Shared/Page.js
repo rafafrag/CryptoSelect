@@ -1,7 +1,7 @@
 import React from "react";
 import { AppContext } from "../App/AppProvider";
 
-function pageContent({ name, children }) {
+function context({ name, children }) {
   return (
     <AppContext.Consumer>
       {({ page }) => {
@@ -13,4 +13,5 @@ function pageContent({ name, children }) {
     </AppContext.Consumer>
   );
 }
-export default pageContent;
+
+export default context;

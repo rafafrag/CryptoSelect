@@ -5,7 +5,7 @@ import Page from "../Shared/Page";
 import CoinGrid from "./CoinGrid";
 import Search from "./Search";
 
-export default function() {
+function settingsPage() {
   return (
     <Page name="settings">
       <WelcomeMessage />
@@ -16,3 +16,5 @@ export default function() {
     </Page>
   );
 }
+
+export default settingsPage;

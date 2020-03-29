@@ -47,7 +47,7 @@ function filterCoins(e, setFilteredCoins, coinList) {
   handleFilter(inputValue, coinList, setFilteredCoins);
 }
 
-function searchFilter() {
+function searchBox() {
   return (
     <AppContext.Consumer>
       {({ setFilteredCoins, coinList }) => (
@@ -61,5 +61,4 @@ function searchFilter() {
     </AppContext.Consumer>
   );
 }
-
-export default searchFilter;
+export default searchBox;

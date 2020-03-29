@@ -32,4 +32,5 @@ function topGridStyle({ name, symbol, topSection }) {
     </CoinHeaderGridStyled>
   );
 }
+
 export default topGridStyle;

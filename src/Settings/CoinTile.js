@@ -14,7 +14,7 @@ function clickCoinHandler(topSection, coinKey, addCoin, removeCoin) {
       };
 }
 
-export default function({ coinKey, topSection }) {
+function topSectionKey({ coinKey, topSection }) {
   return (
     <AppContext.Consumer>
       {({ coinList, addCoin, removeCoin, isInFavorites }) => {
@@ -44,33 +44,4 @@ export default function({ coinKey, topSection }) {
   );
 }
 
-// function keyTopSection({ coinKey, topSection }) {
-//   return (
-//     <AppContext.Consumer>
-//       {({ coinList, addCoin, removeCoin, isInFavorites }) => {
-//         let coin = coinList[coinKey];
-
-//         let TileClass = SelectableTile;
-//         if (topSection) {
-//           TileClass = DeletableTile;
-//         } else if (isInFavorites(coinKey)) {
-//           TileClass = DisabledTile;
-//         }
-
-//         return (
-//           <TileClass
-//             onClick={clickCoinHandler(topSection, coinKey, addCoin, removeCoin)}
-//           >
-//             <CoinHeaderGrid
-//               topSection={topSection}
-//               name={coin.CoinName}
-//               symbol={coin.Symbol}
-//             />
-//             <CoinImage coin={coin} />
-//           </TileClass>
-//         );
-//       }}
-//     </AppContext.Consumer>
-//   );
-// }
-// export default keyTopSection;
+export default topSectionKey;

@@ -21,4 +21,5 @@ function coinLogo({ coin, spotlight }) {
     />
   );
 }
+
 export default coinLogo;
