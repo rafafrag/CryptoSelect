@@ -23,4 +23,5 @@ function dashboardPrice() {
     </AppContext.Consumer>
   );
 }
+
 export default dashboardPrice;

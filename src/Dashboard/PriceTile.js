@@ -105,4 +105,5 @@ function tile({ price, index }) {
     </AppContext.Consumer>
   );
 }
+
 export default tile;
