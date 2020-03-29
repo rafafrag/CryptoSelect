@@ -49,7 +49,7 @@ function ControlButton({ name }) {
 function appBar() {
   return (
     <Bar>
-      <Logo> Bit </Logo>
+      <Logo> CryptoSelect </Logo>
       <div />
       <ControlButton active name="dashboard" />
       <ControlButton name="settings" />
