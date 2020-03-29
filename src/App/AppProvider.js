@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import moment from "moment";
-export const cc = require("cryptocompare");
+const cc = require("cryptocompare");
 
 export const AppContext = React.createContext();
 
@@ -14,6 +14,7 @@ export class AppProvider extends React.Component {
     this.state = {
       page: "dashboard",
       favorites: ["BTC", "ETH", "XMR", "DOGE"],
+      timeInterval: "months",
       ...this.savedSettings(),
       setPage: this.setPage,
       addCoin: this.addCoin,
@@ -21,7 +22,8 @@ export class AppProvider extends React.Component {
       isInFavorites: this.isInFavorites,
       confirmFavorites: this.confirmFavorites,
       setCurrentFavorite: this.setCurrentFavorite,
-      setFilteredCoins: this.setFilteredCoins
+      setFilteredCoins: this.setFilteredCoins,
+      changeChartSelect: this.changeChartSelect
     };
   }
 
@@ -36,11 +38,10 @@ export class AppProvider extends React.Component {
     this.setState({ coinList });
   };
 
-  //fech from api
   fetchPrices = async () => {
     if (this.state.firstVisit) return;
     let prices = await this.prices();
-    //prices = prices.filter(price => Object.keys(price).length);
+    prices = prices.filter(price => Object.keys(price).length);
     this.setState({ prices });
   };
 
@@ -74,7 +75,6 @@ export class AppProvider extends React.Component {
     return returnData;
   };
 
-  //this bustract 10 months, when all data comes back
   historical = () => {
     let promises = [];
     for (let units = TIME_UNITS; units > 0; units--) {
@@ -99,7 +99,6 @@ export class AppProvider extends React.Component {
     }
   };
 
-  //gives new array of the value removed
   removeCoin = key => {
     let favorites = [...this.state.favorites];
     this.setState({ favorites: _.pull(favorites, key) });
@@ -122,10 +121,12 @@ export class AppProvider extends React.Component {
         this.fetchHistorical();
       }
     );
-
     localStorage.setItem(
       "cryptoDash",
-      JSON.stringify({ favorites: this.state.favorites, currentFavorite })
+      JSON.stringify({
+        favorites: this.state.favorites,
+        currentFavorite
+      })
     );
   };
 
@@ -159,6 +160,13 @@ export class AppProvider extends React.Component {
   setPage = page => this.setState({ page });
 
   setFilteredCoins = filteredCoins => this.setState({ filteredCoins });
+
+  changeChartSelect = value => {
+    this.setState(
+      { timeInterval: value, historical: null },
+      this.fetchHistorical
+    );
+  };
 
   render() {
     return (
