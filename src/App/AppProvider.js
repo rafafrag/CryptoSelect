@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import moment from "moment";
-const cc = require("cryptocompare");
+export const cc = require("cryptocompare");
 
 export const AppContext = React.createContext();
 
